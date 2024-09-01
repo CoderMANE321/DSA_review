@@ -1,0 +1,35 @@
+from algorithms.mr_rubix import Rubix
+from structs.graph import Graph
+
+
+def main():
+    bot = Rubix()
+
+    # Example usage of binary search
+    arr = [0, 2, 7, 2, 3, 4, 5]
+    bot.add_problem(lambda: print("Binary Search Result:", bot.binary_search(arr, 3)))
+
+    # Example usage of longest increasing subsequence (DP)
+    lis_arr = [10, 9, 2, 5, 3, 7, 101, 18]
+    bot.add_problem(lambda: print("LIS Result:", bot.longest_increasing_subsequence(lis_arr)))
+
+    # Example usage of activity selection (Greedy)
+    intervals = [(1, 3), (2, 5), (4, 6), (6, 8), (5, 7)]
+    bot.add_problem(lambda: print("Activity Selection Result:", bot.activity_selection(intervals)))
+
+    # Create a graph and add vertices and edges
+    graph = Graph()
+    vertices = ['A', 'B', 'C', 'D']
+    for v in vertices:
+        graph.add_vertex(v)
+    edges = [('A', 'B'), ('A', 'C'), ('B', 'D'), ('C', 'D')]
+    for u, v in edges:
+        graph.add_edge(u, v)
+
+    # Example usage of backtracking: find all paths in the graph
+    bot.add_problem(lambda: print("All Paths from A to D:", bot.find_all_paths(graph, 'A', 'D')))
+
+    bot.execute_problems()
+
+if __name__ == "__main__":
+    main()
